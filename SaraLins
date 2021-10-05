@@ -1,0 +1,45 @@
+echo "# Fluxo-com-TRY-CATCH" >> README.md 
+git init 
+git add README.md 
+git commit -m "first commit" 
+git branch -M main 
+git remote add origin https://github.com/sara- lins / Fluxo-com-TRY-CATCH.git
+ git push -u origin main
+ public class Fluxo {
+	
+	public static void main(String[] args) {
+					
+		System.out.println("Ini do main");//chamando o try catch depois de iniciar o processo. 
+		try {
+			metodo1();
+		} catch(ArithmeticException | NullPointerException | MinhaExcecao ex) {
+			String msg = ex.getMessage(); //mostra o erro da Exceção.
+			System.out.println("Exception " + msg); //ou ("Exception" + ex.getMessage());
+			ex.printStackTrace();//printa na tela o rastro da exceção na Stack.
+		}
+		System.out.println("Fim do main");
+	}
+	
+	private static void metodo1() {
+		System.out.println("Ini do metodo1");
+		metodo2();
+		System.out.println("Fim do metodo1");
+	}
+	
+	private static void metodo2() {
+		System.out.println("Ini do metodo2");
+//		for(int i = 1; i <= 5; i++) {
+//			System.out.println(i);
+//			int a = 1 / 0; //exceção, a bomba no código.
+//			Conta c = null;
+//			c.deposita();
+//		}
+		
+		//criando a própria bomba.
+		//throw new ArithmeticException("Bomba"); //instanciando o objeto e lançando a bomba no cógido (new = instanciar e throw = lançar, tudo ao mesmo tempo.
+
+		throw new MinhaExcecao("deu ruim");
+		
+//		System.out.println("Fim do metodo2");
+	}
+}
